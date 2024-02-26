@@ -1,5 +1,7 @@
 python=3.10
 venv=3.3
+random=3.12
+timeit=3.7
 unittest=1.0.0
 pip=24.0
 directory_tree=0.0.4
