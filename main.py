@@ -30,10 +30,9 @@ def floyd_warshall(graph):
 
 class TestFloydWarshall(unittest.TestCase):
     """
-    unittest to test the function
+    unittest to test the recursive functions in base and positive cases
     """
-    def test_floyd_warshall(self):
-        # Test case 1
+    def test_recursive_floyd_warshall_base_case(self):
         graph1 = [
             [0, 5, float('inf'), 10],
             [float('inf'), 0, 3, float('inf')],
@@ -48,7 +47,20 @@ class TestFloydWarshall(unittest.TestCase):
             [float('inf'), float('inf'), float('inf'), 0]
         ])
 
-
+    def test_recursive_floyd_warshall_positive_case(self):
+        graph2 = [
+            [0, 1, float('inf'), 1],
+            [1, 0, 1, float('inf')],
+            [float('inf'), 1, 0, 1],
+            [1, float('inf'), 1, 0]
+        ]
+        result2 = floyd_warshall(graph2)
+        self.assertEqual(result2, [
+            [0, 1, 2, 1],
+            [1, 0, 1, 2],
+            [2, 1, 0, 1],
+            [1, 2, 1, 0]
+        ])
 
 
 if __name__ == '__main__':
