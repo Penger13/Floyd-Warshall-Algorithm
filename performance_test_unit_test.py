@@ -38,7 +38,7 @@ class TestFloydWarshall(unittest.TestCase):
 
 import timeit
 
-# Import your Floyd-Warshall algorithm implementation
+# import Floyd Warshall algorithm
 from main import floyd_warshall
 
 import random
@@ -46,17 +46,17 @@ import random
 
 def generate_random_graph(num_vertices, max_weight=10, density=0.5):
     """
-    Generates a random weighted directed graph.
+    generates a random weighted directed graph.
 
     """
-    # Initialize an empty graph (all edges are initially set to infinity)
+    # initialize an empty graph (all edges are initially set to infinity)
     graph = [[float('inf')] * num_vertices for _ in range(num_vertices)]
 
-    # Add edges randomly based on density
+    # add edges randomly based on density
     for i in range(num_vertices):
         for j in range(num_vertices):
             if i != j and random.random() < density:
-                # Assign a random weight to the edge
+                # assign a random weight to the edge
                 graph[i][j] = random.randint(1, max_weight)
 
     return graph
@@ -64,18 +64,18 @@ def generate_random_graph(num_vertices, max_weight=10, density=0.5):
 
 class PerformanceTest(unittest.TestCase):
     def setUp(self):
-        # Define a range of graph sizes to test
+        # define a range of graph sizes to test
         self.graph_sizes = [10, 50, 100, 200]
 
     def test_performance(self):
         for size in self.graph_sizes:
-            # Generate a random graph of size 'size'
+            # generate a random graph of size 'size'
             graph = generate_random_graph(size)
 
-            # Measures the run time of the algorithm
+            # measures the run time of the algorithm
             time_taken = timeit.timeit(lambda: floyd_warshall(graph), number=1)
 
-            # Print the results
+            # print the results
             print(f"Graph size: {size}, Time taken: {time_taken} seconds")
 
 

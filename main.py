@@ -2,7 +2,7 @@
 
 def floyd_warshall(graph):
     """
-    Floyd-Warshall algorithm with recursion to calculate the shortest paths between all pairs of vertices
+    Floyd Warshall algorithm with recursion to calculate the shortest paths between all pairs of vertices
     """
 
     def recursive_floyd_warshall(i, j, k):
